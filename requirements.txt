@@ -1,0 +1,3 @@
+# Install the SENTINEL package (editable) — pulls all runtime deps from pyproject.toml.
+# Optional: add the Gemini provider with  pip install -e ".[gemini]"
+-e .

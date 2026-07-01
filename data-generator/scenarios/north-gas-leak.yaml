@@ -1,0 +1,57 @@
+# Scripted "developing event" for the live demo (used by the replay engine, Phase 7).
+# A gas leak in North District: clustered citizen reports + medical calls during
+# high wind. SENTINEL should detect the cluster, forecast a surge, and recommend
+# pre-positioning + a public alert + supervisor escalation.
+name: north-gas-leak
+district: North
+description: >
+  Correlated gas-leak signals in North District. Multiple citizen reports and
+  medical 911 calls within a few blocks over ~4 minutes, amplified by 28 mph wind.
+
+duration_minutes: 4
+
+# Realism knobs — bump these live during judging to show the system adapt.
+realism_knobs:
+  call_rate_multiplier: 3.0
+  escalation_probability: 0.85
+  correlation_strength: 0.9
+  wind_mph: 28
+
+# Timeline of events published to the (local) bus, relative to replay start.
+timeline:
+  - at_seconds: 30
+    kind: citizen_report
+    location: "5th & Oak"
+    text: "strong smell of gas near 5th & Oak"
+  - at_seconds: 45
+    kind: citizen_report
+    location: "Oak St"
+    text: "smoke coming from a building on Oak St, feeling dizzy"
+  - at_seconds: 55
+    kind: citizen_report
+    location: "5th Ave"
+    text: "chemical odor in the air, hard to breathe"
+  - at_seconds: 70
+    kind: incident
+    incident_type: medical
+    priority: 1
+    text: "difficulty breathing, possible gas exposure"
+  - at_seconds: 95
+    kind: incident
+    incident_type: medical
+    priority: 1
+    text: "person collapsed, complains of fumes"
+  - at_seconds: 130
+    kind: incident
+    incident_type: hazmat
+    priority: 1
+    text: "reported gas leak, evacuating area"
+  - at_seconds: 160
+    kind: citizen_report
+    location: "Oak & 6th"
+    text: "more people coughing outside near Oak & 6th"
+  - at_seconds: 190
+    kind: incident
+    incident_type: medical
+    priority: 2
+    text: "elderly resident dizzy and nauseous"
