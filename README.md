@@ -195,7 +195,7 @@ Full walkthrough (API enablement, Gemini via Secret Manager, redeploy, demo rese
 
 ---
 
-## The LLM is pluggable
+## The LLM - is pluggable
 
 Set `LLM_PROVIDER` — the app stays fully functional in every mode:
 
